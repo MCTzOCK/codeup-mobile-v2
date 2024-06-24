@@ -11,13 +11,20 @@
 import * as React from "react";
 import { Box, Button, Text, View } from "native-base";
 import Page from "@/components/Page";
+import REST from "@codeupspace/rest";
 
 export default function Index() {
   return (
     <>
       <Page>
-        <Box w={"1/2"} mt={8} ml={8}>
-          <Button size={"lg"} colorScheme={"darkBlue"}>
+        <Box w={"1/2"}>
+          <Button
+            size={"lg"}
+            colorScheme={"darkBlue"}
+            onPress={async () => {
+              const res = await REST.Ideas.getProjectIdeas();
+            }}
+          >
             Hello World
           </Button>
         </Box>

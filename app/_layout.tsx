@@ -5,8 +5,12 @@ import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 import "react-native-reanimated";
 
-import { extendTheme, NativeBaseProvider } from "native-base";
+import { Box, extendTheme, NativeBaseProvider } from "native-base";
 import { theme } from "../constants/theme";
+import { RESTAPI } from "@codeupspace/rest/src/makeRequest";
+import { StatusBar } from "react-native";
+
+RESTAPI.setPathPrefix("https://codeup.space");
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -48,6 +52,7 @@ export default function RootLayout() {
 function RootLayoutNav() {
   return (
     <NativeBaseProvider theme={theme}>
+      <StatusBar barStyle={"light-content"} animated={false} />
       <Stack
         screenOptions={{
           contentStyle: {
@@ -56,6 +61,13 @@ function RootLayoutNav() {
         }}
       >
         <Stack.Screen name="index" options={{ headerShown: false }} />
+        <Stack.Screen
+          name="test/index"
+          options={{
+            headerShown: false,
+            statusBarAnimation: "none",
+          }}
+        />
       </Stack>
     </NativeBaseProvider>
   );
