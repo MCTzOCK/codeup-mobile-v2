@@ -42,7 +42,21 @@ export const theme = extendTheme({
         lg: {
           _text: {
             fontSize: "lg",
+            color: "black",
           },
+        },
+        md: {
+          _text: {
+            fontSize: "md",
+            color: "black",
+          },
+        },
+      },
+    },
+    Input: {
+      baseStyle: {
+        _focus: {
+          borderColor: "brand.500",
         },
       },
     },

@@ -10,8 +10,9 @@
 
 import * as React from "react";
 import { Box, Button, Text, View } from "native-base";
-import Page from "@/components/Page";
+import Page from "@/src/components/Page";
 import REST from "@codeupspace/rest";
+import { router } from "expo-router";
 
 export default function Index() {
   return (
@@ -20,9 +21,9 @@ export default function Index() {
         <Box w={"1/2"}>
           <Button
             size={"lg"}
-            colorScheme={"darkBlue"}
+            colorScheme={"brand"}
             onPress={async () => {
-              const res = await REST.Ideas.getProjectIdeas();
+              router.push("/test");
             }}
           >
             Hello World

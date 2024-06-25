@@ -5,15 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab07d978-7219-4827-826a-8d2b76366bc9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/jsonSchemas.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/test/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/MenuItems.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/FormField.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/LoginComponent.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/popups/AlertPopupComponent.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/popups/ConfirmPopupComponent.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/popups/PromptPopupComponent.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/popups/SelectPopupComponent.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/types.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/util/AccountManager.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/util/PopupManager.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/_layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/+html.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/+html.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/test/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/test/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/fonts/SpaceMono-Regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/fonts/SpaceMono-Regular.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/adaptive-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/adaptive-icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/favicon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/favicon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/splash.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/splash.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/MenuItems.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/constants/theme.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/theme.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,10 +67,16 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "yarn",
     "prettierjs.PrettierConfiguration.Package": "P:\\Competitions\\JuFo\\codeup-mobile\\node_modules\\prettier",
-    "settings.editor.selected.configurable": "settings.javascript.prettier",
+    "settings.editor.selected.configurable": "settings.typescriptcompiler",
     "ts.external.directory.path": "P:\\Competitions\\JuFo\\codeup-mobile\\node_modules\\typescript\\lib"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="P:\Competitions\JuFo\codeup-mobile\src" />
+      <recent name="P:\Competitions\JuFo\codeup-mobile\typings" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>

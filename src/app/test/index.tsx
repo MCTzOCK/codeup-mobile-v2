@@ -9,7 +9,7 @@
  */
 
 import * as React from "react";
-import Page from "@/components/Page";
+import Page from "@/src/components/Page";
 import { Heading } from "native-base";
 
 export default function Index() {
