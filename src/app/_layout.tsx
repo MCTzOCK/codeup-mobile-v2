@@ -8,6 +8,7 @@ import {
   Box,
   extendTheme,
   Heading,
+  KeyboardAvoidingView,
   NativeBaseProvider,
   Pressable,
   Spinner,
@@ -25,6 +26,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { AccountManager } from "@/src/util/AccountManager";
 import LoginComponent from "@/src/components/LoginComponent";
 import PopupManager from "@/src/util/PopupManager";
+import { useLoggedIn } from "@/src/hooks/useLoggedIn";
 
 RESTAPI.setPathPrefix("https://codeup.space");
 
@@ -69,6 +71,8 @@ function RootLayoutNav() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
+  const { loggedIn, loaded, userInfo } = useLoggedIn();
+
   const initStorage = async () => {
     try {
       const token = await AsyncStorage.getItem("token");
@@ -97,7 +101,8 @@ function RootLayoutNav() {
     <ThemeProvider value={DarkTheme}>
       <NativeBaseProvider theme={theme}>
         <PopupManager />
-        {isLoading ? (
+
+        {!loaded ? (
           <>
             <View
               flex={1}
@@ -116,7 +121,7 @@ function RootLayoutNav() {
           </>
         ) : (
           <>
-            {isLoggedIn ? (
+            {loggedIn ? (
               <>
                 <Nav />
               </>
@@ -147,8 +152,9 @@ const Nav = () => {
         headerRight: () => (
           <Box mr={2}>
             <Pressable
-              onPress={() => {
-                router.push("/settings");
+              onPress={async () => {
+                //                router.push("/settings");
+                await AsyncStorage.removeItem("token");
               }}
             >
               <FontAwesome6 name="gear" size={24} color="#F7DE1F" />

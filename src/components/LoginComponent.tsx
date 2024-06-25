@@ -23,8 +23,13 @@ import {
   HStack,
   useToast,
   Center,
+  KeyboardAvoidingView,
 } from "native-base";
 import FormField from "@/src/components/FormField";
+import REST from "@codeupspace/rest";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { AccountManager } from "@/src/util/AccountManager";
+import { router } from "expo-router";
 
 export default function LoginComponent() {
   const [action, setAction] = React.useState<"login" | "register">("login");
@@ -39,7 +44,7 @@ export default function LoginComponent() {
   const [registerPasswordRepeat, setRegisterPasswordRepeat] =
     React.useState("");
 
-  const toast = useToast();
+  const [loading, setLoading] = React.useState(false);
 
   return (
     <>
@@ -51,6 +56,7 @@ export default function LoginComponent() {
         bg={"#121212"}
       >
         <Box pt={16}></Box>
+
         <Box rounded={"lg"} p={4} bg={"black"} minW={"2/3"} maxW={"3/4"}>
           {action === "login" ? (
             <>
@@ -77,23 +83,66 @@ export default function LoginComponent() {
                 <Button
                   colorScheme={"brand"}
                   size={"md"}
+                  isLoading={loading}
                   onPress={async () => {
-                    const x = await window.PopupManager.selectAsync({
-                      title: "Select",
-                      message: "Select an item",
-                      choices: [
-                        {
-                          value: "1",
-                          label: "Item 1",
-                        },
-                        {
-                          value: "2",
-                          label: "Item 2",
-                        },
-                      ],
+                    setLoading(true);
+                    if (!loginUsername || !loginPassword) {
+                      window.PopupManager.alertAsync({
+                        message: "Bitte fülle alle Felder aus!",
+                        title: "Fehler",
+                      });
+                      return;
+                    }
+
+                    const res = await REST.Account.loginWithUsername({
+                      username: loginUsername,
+                      password: loginPassword,
                     });
 
-                    console.log(x);
+                    if (res.status === 200) {
+                      if (res.payload._2fa === true) {
+                        const code = await window.PopupManager.promptAsync({
+                          label: "2FA Code",
+                          helperText: "Bitte gib deinen 2FA Code ein.",
+                          title: "2FA",
+                        });
+
+                        if (!code) return;
+
+                        const res2 = await REST.Account.loginWithUsername({
+                          username: loginUsername,
+                          password: loginPassword,
+                          code,
+                        });
+
+                        if (res2.status !== 200) {
+                          window.PopupManager.alertAsync({
+                            message:
+                              "Ein Fehler ist aufgetreten: " +
+                              res2.payload.error,
+                            title: "Fehler",
+                          });
+                          setLoading(false);
+                        } else {
+                          const token = res2.payload.token;
+                          await AsyncStorage.setItem("token", token);
+                          AccountManager.setToken(token);
+                          setLoading(false);
+                        }
+                      } else {
+                        const token = res.payload.token;
+                        await AsyncStorage.setItem("token", token);
+                        AccountManager.setToken(token);
+                        setLoading(false);
+                      }
+                    } else {
+                      window.PopupManager.alertAsync({
+                        message:
+                          "Ein Fehler ist aufgetreten: " + res.payload.error,
+                        title: "Fehler",
+                      });
+                      setLoading(false);
+                    }
                   }}
                 >
                   Anmelden
@@ -167,7 +216,74 @@ export default function LoginComponent() {
                 <Button
                   colorScheme={"brand"}
                   size={"md"}
-                  onPress={async () => {}}
+                  isLoading={loading}
+                  onPress={async () => {
+                    setLoading(true);
+                    if (
+                      !registerUsername ||
+                      !registerFirstname ||
+                      !registerLastname ||
+                      !registerEmail ||
+                      !registerPassword ||
+                      !registerPasswordRepeat
+                    ) {
+                      window.PopupManager.alertAsync({
+                        message: "Bitte fülle alle Felder aus!",
+                        title: "Fehler",
+                      });
+                      setLoading(false);
+                      return;
+                    }
+
+                    if (
+                      !registerEmail.match(
+                        /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,5}$/,
+                      )
+                    ) {
+                      window.PopupManager.alertAsync({
+                        message: "Bitte gib eine gültige E-Mail Adresse ein!",
+                        title: "Fehler",
+                      });
+                      setLoading(false);
+                      return;
+                    }
+
+                    if (registerPassword !== registerPasswordRepeat) {
+                      window.PopupManager.alertAsync({
+                        message: "Die Passwörter stimmen nicht überein!",
+                        title: "Fehler",
+                      });
+                      setLoading(false);
+                      return;
+                    }
+
+                    const res = await REST.Account.register({
+                      username: registerUsername,
+                      firstName: registerFirstname,
+                      lastName: registerLastname,
+                      email: registerEmail,
+                      password: registerPassword,
+                    });
+
+                    if (res.status !== 200) {
+                      window.PopupManager.alertAsync({
+                        message:
+                          "Ein Fehler ist aufgetreten: " + res.payload.error,
+                        title: "Fehler",
+                      });
+                      setLoading(false);
+                      return;
+                    }
+
+                    window.PopupManager.alertAsync({
+                      message:
+                        "Du hast dich erfolgreich registriert! Bitte bestätige deine E-Mail Adresse!",
+                      title: "Erfolg",
+                    });
+
+                    setLoading(false);
+                    setAction("login");
+                  }}
                 >
                   Registrieren
                 </Button>
@@ -185,7 +301,7 @@ export default function LoginComponent() {
             </>
           )}
         </Box>
-        <Box pb={16}></Box>
+        <Box pb={"300px"}></Box>
       </ScrollView>
     </>
   );
