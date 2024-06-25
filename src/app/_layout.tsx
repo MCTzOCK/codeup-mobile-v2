@@ -68,9 +68,6 @@ export default function RootLayout() {
 }
 
 function RootLayoutNav() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
-
   const { loggedIn, loaded, userInfo } = useLoggedIn();
 
   const initStorage = async () => {
@@ -83,19 +80,6 @@ function RootLayoutNav() {
       console.error(error);
     }
   };
-
-  useEffect(() => {
-    initStorage().then(() => {
-      setIsLoading(false);
-    });
-  }, []);
-
-  useEffect(() => {
-    if (AccountManager.token && AccountManager.token.length > 0) {
-      setIsLoggedIn(AccountManager.isLoggedIn());
-      setIsLoading(false);
-    }
-  }, [AccountManager.token]);
 
   return (
     <ThemeProvider value={DarkTheme}>
