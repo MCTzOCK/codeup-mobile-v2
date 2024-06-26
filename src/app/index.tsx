@@ -9,26 +9,85 @@
  */
 
 import * as React from "react";
-import { Box, Button, Text, View } from "native-base";
+import {
+  Box,
+  Button,
+  Heading,
+  HStack,
+  ScrollView,
+  SimpleGrid,
+  Text,
+  View,
+} from "native-base";
 import Page from "@/src/components/Page";
 import REST from "@codeupspace/rest";
 import { router } from "expo-router";
+import HomeCard from "@/src/components/HomeCard";
+import { Dimensions, TouchableOpacity } from "react-native";
+import { FontAwesome6 } from "@expo/vector-icons";
 
 export default function Index() {
   return (
     <>
       <Page>
-        <Box w={"1/2"}>
-          <Button
-            size={"lg"}
-            colorScheme={"brand"}
-            onPress={async () => {
-              router.push("/test");
-            }}
-          >
-            Hello World
-          </Button>
-        </Box>
+        <ScrollView minHeight={Dimensions.get("window").height}>
+          <Box p={8}>
+            <Heading
+              size={"xl"}
+              fontWeight={900}
+              letterSpacing={1.5}
+              mb={4}
+              color={"brand.500"}
+            >
+              Angebote
+            </Heading>
+            <ScrollView
+              horizontal={true}
+              showsHorizontalScrollIndicator={false}
+              h={200}
+            >
+              <View
+                flex={1}
+                style={{
+                  flexWrap: "wrap",
+                  columnGap: 10,
+                  rowGap: 10,
+                  flexDirection: "row",
+                }}
+                maxW={"100%"}
+              >
+                <HomeCard
+                  title={"Kurse"}
+                  icon={
+                    <FontAwesome6 name="book-open" size={58} color="#f0f0f0" />
+                  }
+                  href={"/courses"}
+                  gradient={["brand.600", "brand.600"]}
+                />
+                <HomeCard
+                  title={"Ideen"}
+                  icon={
+                    <FontAwesome6 name="lightbulb" size={58} color="#f0f0f0" />
+                  }
+                  href={"/offers/ideas"}
+                  gradient={["lightBlue.500", "lightBlue.600", "lightBlue.700"]}
+                />
+              </View>
+            </ScrollView>
+            <TouchableOpacity
+              onPress={() => {
+                router.push("/offers");
+              }}
+            >
+              <HStack space={2} pt={4} alignItems={"center"}>
+                <Text fontSize={16} color={"brand.500"}>
+                  Alle Angebote
+                </Text>
+                <FontAwesome6 name="chevron-right" size={14} color="#F7DE1F" />
+              </HStack>
+            </TouchableOpacity>
+          </Box>
+        </ScrollView>
       </Page>
     </>
   );

@@ -27,6 +27,7 @@ import { AccountManager } from "@/src/util/AccountManager";
 import LoginComponent from "@/src/components/LoginComponent";
 import PopupManager from "@/src/util/PopupManager";
 import { useLoggedIn } from "@/src/hooks/useLoggedIn";
+import Loader from "@/src/components/Loader";
 
 RESTAPI.setPathPrefix("https://codeup.space");
 
@@ -83,25 +84,19 @@ function RootLayoutNav() {
 
   return (
     <ThemeProvider value={DarkTheme}>
-      <NativeBaseProvider theme={theme}>
+      <NativeBaseProvider
+        theme={theme}
+        config={{
+          dependencies: {
+            "linear-gradient": require("expo-linear-gradient").LinearGradient,
+          },
+        }}
+      >
         <PopupManager />
 
         {!loaded ? (
           <>
-            <View
-              flex={1}
-              bg={"#121212"}
-              alignItems={"center"}
-              justifyContent={"center"}
-            >
-              <VStack space={4} justifyContent={"center"} alignItems={"center"}>
-                <Spinner
-                  accessibilityLabel={"Loading"}
-                  color={"brand.500"}
-                  size={"lg"}
-                />
-              </VStack>
-            </View>
+            <Loader />
           </>
         ) : (
           <>
@@ -157,6 +152,18 @@ const Nav = () => {
         name="test/index"
         options={{
           headerTitle: "Test Page",
+        }}
+      />
+      <Stack.Screen
+        name="offers"
+        options={{
+          headerTitle: "Angebote",
+        }}
+      />
+      <Stack.Screen
+        name="offers/ideas"
+        options={{
+          headerTitle: "Projektideen",
         }}
       />
     </Stack>
