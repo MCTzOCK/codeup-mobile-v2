@@ -161,6 +161,12 @@ const Nav = () => {
         }}
       />
       <Stack.Screen
+        name="offers/courses"
+        options={{
+          headerTitle: "Kurse",
+        }}
+      />
+      <Stack.Screen
         name="offers/ideas"
         options={{
           headerTitle: "Projektideen",

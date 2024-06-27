@@ -41,7 +41,12 @@ export default function HomeCard(props: {
             p={6}
           >
             {props.icon}
-            <Heading size={"xl"} fontWeight={900} letterSpacing={1.5}>
+            <Heading
+              size={"xl"}
+              color={"brand.500"}
+              fontWeight={900}
+              letterSpacing={1.5}
+            >
               {props.title}
             </Heading>
           </VStack>

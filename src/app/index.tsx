@@ -59,15 +59,15 @@ export default function Index() {
                 <HomeCard
                   title={"Kurse"}
                   icon={
-                    <FontAwesome6 name="book-open" size={58} color="#f0f0f0" />
+                    <FontAwesome6 name="book-open" size={58} color="#F7DE1F" />
                   }
-                  href={"/courses"}
+                  href={"/offers/courses"}
                   gradient={["brand.600", "brand.600"]}
                 />
                 <HomeCard
                   title={"Ideen"}
                   icon={
-                    <FontAwesome6 name="lightbulb" size={58} color="#f0f0f0" />
+                    <FontAwesome6 name="lightbulb" size={58} color="#F7DE1F" />
                   }
                   href={"/offers/ideas"}
                   gradient={["lightBlue.500", "lightBlue.600", "lightBlue.700"]}
