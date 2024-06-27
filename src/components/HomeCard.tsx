@@ -13,6 +13,7 @@ import { Box, Heading, Pressable, Text, VStack, ZStack } from "native-base";
 import { Dimensions, TouchableOpacity } from "react-native";
 import * as svg from "react-native-svg";
 import { router } from "expo-router";
+import { defined_colors } from "@/src/constants/colors";
 
 export default function HomeCard(props: {
   title: string;
@@ -33,7 +34,7 @@ export default function HomeCard(props: {
           router.push(props.href);
         }}
       >
-        <Box rounded={"md"} h={200} bg={"indigo.500"}>
+        <Box rounded={"md"} h={200} bg={defined_colors.card}>
           <VStack
             flex={1}
             alignItems={"center"}

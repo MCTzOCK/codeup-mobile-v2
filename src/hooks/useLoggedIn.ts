@@ -11,6 +11,7 @@
 import REST from "@codeupspace/rest";
 import { useEffect, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { AccountManager } from "@/src/util/AccountManager";
 
 export function useLoggedIn(): {
   loggedIn: boolean;
@@ -48,8 +49,9 @@ export function useLoggedIn(): {
           REST.Account.verify(newToken).then(async (res) => {
             if (res.status === 200) {
               if (res.payload.token) {
-                await AsyncStorage.setItem("token", res.payload.token);
-                token = res.payload.token;
+                await AsyncStorage.setItem("token", newToken as string);
+                AccountManager.setToken(newToken as string);
+                token = newToken;
 
                 const r = await REST.Account.verify(token as string);
 

@@ -120,6 +120,7 @@ const Nav = () => {
   return (
     <Stack
       screenOptions={{
+        animation: "slide_from_bottom",
         contentStyle: {
           backgroundColor: "#121212",
         },
@@ -170,6 +171,13 @@ const Nav = () => {
         name="offers/ideas"
         options={{
           headerTitle: "Projektideen",
+        }}
+      />
+      <Stack.Screen
+        name="offers/courses/[id]"
+        options={{
+          headerTitle: "Kurs",
+          presentation: "modal",
         }}
       />
     </Stack>

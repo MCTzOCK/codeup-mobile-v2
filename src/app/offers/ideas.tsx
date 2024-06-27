@@ -15,6 +15,7 @@ import { useEffect } from "react";
 import REST from "@codeupspace/rest";
 import { Box, Button, Heading, HStack, ScrollView, Text } from "native-base";
 import { router } from "expo-router";
+import { defined_colors } from "@/src/constants/colors";
 
 export default function Ideas() {
   const [loading, setLoading] = React.useState<boolean>(true);
@@ -145,7 +146,15 @@ function IdeaCard(props: {
   exampleSourceURL: string;
 }) {
   return (
-    <Box rounded={"md"} bg={"indigo.500"} w={300} p={4} mr={4} mb={4} flex={1}>
+    <Box
+      rounded={"md"}
+      bg={defined_colors.card}
+      w={300}
+      p={4}
+      mr={4}
+      mb={4}
+      flex={1}
+    >
       <Heading size={"md"} fontWeight={900} letterSpacing={1.5}>
         {props.title}
       </Heading>
