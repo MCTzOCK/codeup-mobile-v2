@@ -19,7 +19,6 @@ export default function HomeCard(props: {
   title: string;
   icon: React.ReactNode;
   href: string;
-  gradient: string[];
 }) {
   return (
     <>

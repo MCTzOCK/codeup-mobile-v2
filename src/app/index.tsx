@@ -65,7 +65,6 @@ export default function Index() {
                   <FontAwesome6 name="book-open" size={58} color="#F7DE1F" />
                 }
                 href={"/offers/courses"}
-                gradient={["brand.600", "brand.600"]}
               />
               <HomeCard
                 title={"Ideen"}
@@ -73,7 +72,20 @@ export default function Index() {
                   <FontAwesome6 name="lightbulb" size={58} color="#F7DE1F" />
                 }
                 href={"/offers/ideas"}
-                gradient={["lightBlue.500", "lightBlue.600", "lightBlue.700"]}
+              />
+              <HomeCard
+                title={"Zertifikate"}
+                icon={
+                  <FontAwesome6 name="certificate" size={58} color="#F7DE1F" />
+                }
+                href={"/offers/certificates"}
+              />
+              <HomeCard
+                title={"Challenges"}
+                icon={
+                  <FontAwesome6 name="certificate" size={58} color="#F7DE1F" />
+                }
+                href={"/offers/challenges"}
               />
             </View>
           </ScrollView>
