@@ -41,3 +41,13 @@ export interface CourseSection {
     _id: string;
   }[];
 }
+
+export interface Blog {
+  _id: string;
+  title: string;
+  content: string;
+  authorUsername: string;
+  published_at: string;
+  tags: string[];
+  __v: number;
+}
