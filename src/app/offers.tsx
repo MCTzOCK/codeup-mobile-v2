@@ -259,7 +259,7 @@ export default function Offers() {
               <HomeCard
                 title={"Datenschutz"}
                 icon={<FontAwesome6 name="section" size={58} color="#F7DE1F" />}
-                href={"/codeup/privacy-policy"}
+                href={"/codeup/privacy"}
               />
             </View>
           </ScrollView>
