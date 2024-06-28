@@ -144,6 +144,7 @@ const Nav = () => {
         "codeup/privacy",
         "codeup/blog",
         "codeup/blog/[id]",
+        "codeup/contact",
       ].map((p) => {
         return <Stack.Screen name={p} />;
       })}
