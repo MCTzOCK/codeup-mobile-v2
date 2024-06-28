@@ -9,7 +9,15 @@
  */
 
 import * as React from "react";
-import { Box, FlatList, Heading, Text, VStack } from "native-base";
+import {
+  Box,
+  FlatList,
+  Heading,
+  HStack,
+  Input,
+  Text,
+  VStack,
+} from "native-base";
 import { Image } from "expo-image";
 import { Dimensions, ListRenderItem, TouchableOpacity } from "react-native";
 import { router, useNavigation, useRouter } from "expo-router";
@@ -35,6 +43,8 @@ export default function Courses() {
     reloadCourses();
   }, []);
 
+  const [query, setQuery] = React.useState<string>("");
+
   const reloadCourses = async () => {
     const res = await REST.Course.listCourses({
       token: window.authToken as string,
@@ -52,8 +62,28 @@ export default function Courses() {
 
   return (
     <Box p={6} flex={1}>
+      <HStack justifyContent={"space-between"} p={2.5}>
+        <Input
+          placeholder={"Suche..."}
+          flex={1}
+          size={"lg"}
+          onChangeText={(t) => setQuery(t)}
+          value={query}
+          colorScheme={"brand"}
+          _focus={{
+            borderColor: "brand.500",
+            backgroundColor: "transparent",
+          }}
+        />
+      </HStack>
       <FlatList
-        data={[...courses]}
+        data={
+          query.length > 0
+            ? courses.filter((c) =>
+                c.name.toLowerCase().includes(query.toLowerCase()),
+              )
+            : courses
+        }
         numColumns={Dimensions.get("window").width > 600 ? 2 : 1}
         style={{
           gap: 10,
