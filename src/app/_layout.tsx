@@ -71,17 +71,6 @@ export default function RootLayout() {
 function RootLayoutNav() {
   const { loggedIn, loaded, userInfo } = useLoggedIn();
 
-  const initStorage = async () => {
-    try {
-      const token = await AsyncStorage.getItem("token");
-      if (token) {
-        AccountManager.setToken(token);
-      }
-    } catch (error: any) {
-      console.error(error);
-    }
-  };
-
   return (
     <ThemeProvider value={DarkTheme}>
       <NativeBaseProvider
@@ -143,40 +132,10 @@ const Nav = () => {
         ),
       }}
     >
+      <Stack.Screen name={"index"} />
       <Stack.Screen
-        name="index"
+        name={"offers/courses/[name]/[id]"}
         options={{
-          headerTitle: "CodeUp",
-        }}
-      />
-      <Stack.Screen
-        name="test/index"
-        options={{
-          headerTitle: "Test Page",
-        }}
-      />
-      <Stack.Screen
-        name="offers"
-        options={{
-          headerTitle: "Angebote",
-        }}
-      />
-      <Stack.Screen
-        name="offers/courses"
-        options={{
-          headerTitle: "Kurse",
-        }}
-      />
-      <Stack.Screen
-        name="offers/ideas"
-        options={{
-          headerTitle: "Projektideen",
-        }}
-      />
-      <Stack.Screen
-        name="offers/courses/[id]"
-        options={{
-          headerTitle: "Kurs",
           presentation: "modal",
         }}
       />

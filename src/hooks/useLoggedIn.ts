@@ -49,11 +49,11 @@ export function useLoggedIn(): {
           REST.Account.verify(newToken).then(async (res) => {
             if (res.status === 200) {
               if (res.payload.token) {
-                await AsyncStorage.setItem("token", newToken as string);
-                AccountManager.setToken(newToken as string);
-                token = newToken;
+                await AsyncStorage.setItem("token", res.payload.token);
+                window.authToken = res.payload.token;
+                AccountManager.setToken(res.payload.token);
 
-                const r = await REST.Account.verify(token as string);
+                const r = await REST.Account.verify(res.payload.token);
 
                 if (r.status === 200) {
                   setLoggedIn(true);
@@ -65,6 +65,7 @@ export function useLoggedIn(): {
               }
 
               token = newToken;
+              window.authToken = token;
               setLoggedIn(true);
               setUserInfo(res.payload.data);
             } else {

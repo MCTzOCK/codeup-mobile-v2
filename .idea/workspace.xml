@@ -5,19 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab07d978-7219-4827-826a-8d2b76366bc9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/app/offers/courses/[id].tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/constants/colors.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/util/productTypes.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/offers/courses/[name]/[id].tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/babel.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/babel.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_layout.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/offers.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/offers.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/offers/courses.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/offers/courses.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/offers/courses/[id].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/offers/courses/[name].tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/offers/ideas.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/offers/ideas.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HomeCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomeCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/colors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/colors.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/hooks/useLoggedIn.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/useLoggedIn.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/types.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/productTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/productTypes.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -28,8 +28,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>

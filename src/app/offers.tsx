@@ -9,7 +9,13 @@
  */
 
 import * as React from "react";
+import { useNavigation } from "expo-router";
 
 export default function Offers() {
+  const navigation = useNavigation();
+
+  navigation.setOptions({
+    headerTitle: "Angebote",
+  });
   return <></>;
 }

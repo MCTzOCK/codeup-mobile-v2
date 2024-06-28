@@ -9,19 +9,26 @@
  */
 
 import * as React from "react";
-import { Box, FlatList, Heading, Image, Text, VStack } from "native-base";
+import { Box, FlatList, Heading, Text, VStack } from "native-base";
+import { Image } from "expo-image";
 import { Dimensions, ListRenderItem, TouchableOpacity } from "react-native";
-import { router, useRouter } from "expo-router";
+import { router, useNavigation, useRouter } from "expo-router";
 import { useEffect } from "react";
 import REST from "@codeupspace/rest";
 import { AccountManager } from "@/src/util/AccountManager";
 import WebView from "react-native-webview";
 import { defined_colors } from "@/src/constants/colors";
 import { Course } from "@/src/util/productTypes";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const { width, height } = Dimensions.get("window");
 
 export default function Courses() {
+  const navigation = useNavigation();
+
+  navigation.setOptions({
+    headerTitle: "Kurse",
+  });
   const [courses, setCourse] = React.useState<Course[]>([]);
 
   useEffect(() => {
@@ -30,7 +37,7 @@ export default function Courses() {
 
   const reloadCourses = async () => {
     const res = await REST.Course.listCourses({
-      token: AccountManager.getToken() as string,
+      token: window.authToken as string,
     });
 
     if (res.status === 200) {
@@ -77,23 +84,21 @@ const Card = (props: { course: Course }) => {
         router.push(`/offers/courses/${props.course._id}`);
       }}
     >
-      <Box rounded={"md"} h={350} bg={defined_colors.card}>
+      <Box rounded={"md"} h={[425, 400]} bg={defined_colors.card}>
         <VStack
           flex={1}
           alignItems={"center"}
           justifyContent={"space-around"}
           p={2}
         >
-          <WebView
+          <Image
+            source={props.course.splashImage}
             style={{
               width: 350,
-              height: 300,
+              height: 200,
               backgroundColor: "transparent",
-              overflow: "hidden",
             }}
-            source={{
-              html: `<div style="overflow: hidden;background: transparent;padding: 1rem;display: flex;align-items: center;justify-content: center"><img src="${props.course.splashImage}" style="width: 100%; height: 100%; object-fit: contain; background-color: transparent"/></div>`,
-            }}
+            contentFit={"contain"}
           />
           <Heading
             size={"xl"}

@@ -19,3 +19,25 @@ export interface Course {
   name: string;
   splashImage: string;
 }
+
+export interface CourseSection {
+  _id: string;
+  displayName: string;
+  course: string;
+  url: string;
+  type: string;
+  contentType: string;
+  textContent: string;
+  videoUrl: string;
+  creator: string;
+  createdAt: string;
+  quiz: {
+    question: string;
+    answers: {
+      answer: string;
+      correct: boolean;
+      _id: string;
+    }[];
+    _id: string;
+  }[];
+}

@@ -11,6 +11,7 @@ import * as React from "react";
 
 declare global {
   interface Window {
+    authToken: string | null;
     PopupManager: {
       alertAsync: (options: {
         title: string;

@@ -14,10 +14,15 @@ import Loader from "@/src/components/Loader";
 import { useEffect } from "react";
 import REST from "@codeupspace/rest";
 import { Box, Button, Heading, HStack, ScrollView, Text } from "native-base";
-import { router } from "expo-router";
+import { router, useNavigation } from "expo-router";
 import { defined_colors } from "@/src/constants/colors";
 
 export default function Ideas() {
+  const navigation = useNavigation();
+
+  navigation.setOptions({
+    headerTitle: "Projektideen",
+  });
   const [loading, setLoading] = React.useState<boolean>(true);
   const [ideas, setIdeas] = React.useState<
     {

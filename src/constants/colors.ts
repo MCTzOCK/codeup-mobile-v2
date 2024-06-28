@@ -9,5 +9,5 @@
  */
 
 export const defined_colors = {
-  card: "darkBlue.500",
+  card: "gray.800",
 };

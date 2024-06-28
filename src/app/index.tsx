@@ -19,12 +19,18 @@ import {
   Text,
   View,
 } from "native-base";
-import { router } from "expo-router";
+import { router, useNavigation } from "expo-router";
 import HomeCard from "@/src/components/HomeCard";
 import { Dimensions, TouchableOpacity } from "react-native";
 import { FontAwesome6 } from "@expo/vector-icons";
 
 export default function Index() {
+  const navigation = useNavigation();
+
+  navigation.setOptions({
+    headerTitle: "CodeUp",
+  });
+
   return (
     <>
       <ScrollView minHeight={Dimensions.get("window").height}>
