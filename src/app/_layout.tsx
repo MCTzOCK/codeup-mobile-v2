@@ -109,7 +109,7 @@ const Nav = () => {
   return (
     <Stack
       screenOptions={{
-        animation: "slide_from_bottom",
+        //animation: "slide_from_bottom",
         contentStyle: {
           backgroundColor: "#121212",
         },
