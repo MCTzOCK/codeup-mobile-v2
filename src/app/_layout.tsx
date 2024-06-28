@@ -122,8 +122,7 @@ const Nav = () => {
           <Box mr={2}>
             <Pressable
               onPress={async () => {
-                //                router.push("/settings");
-                await AsyncStorage.removeItem("token");
+                router.push("settings");
               }}
             >
               <FontAwesome6 name="gear" size={24} color="#F7DE1F" />
@@ -134,7 +133,7 @@ const Nav = () => {
     >
       {[
         "index",
-        "test/index",
+        "settings",
         "offers",
         "offers/courses",
         "offers/courses/[name]",
