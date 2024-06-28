@@ -51,3 +51,12 @@ export interface Blog {
   tags: string[];
   __v: number;
 }
+
+export interface DiscoveryItem {
+  name: string;
+  description: string;
+  author: string;
+  domain: string;
+  id: string;
+  stars: string[];
+}
