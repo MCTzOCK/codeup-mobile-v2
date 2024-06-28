@@ -140,6 +140,8 @@ const Nav = () => {
         "offers/courses/[name]",
         "offers/ideas",
         "offers/courses/[name]/[id]",
+        "codeup/imprint",
+        "codeup/privacy",
       ].map((p) => {
         return <Stack.Screen name={p} />;
       })}
