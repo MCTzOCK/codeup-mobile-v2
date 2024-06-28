@@ -66,9 +66,7 @@ export default function Offers() {
               />
               <HomeCard
                 title={"Challenges"}
-                icon={
-                  <FontAwesome6 name="certificate" size={58} color="#F7DE1F" />
-                }
+                icon={<FontAwesome6 name="trophy" size={58} color="#F7DE1F" />}
                 href={"/offers/challenges"}
               />
             </View>
