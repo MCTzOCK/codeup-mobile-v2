@@ -28,6 +28,7 @@ import { Image } from "expo-image";
 import Loader from "@/src/components/Loader";
 import { defined_colors } from "@/src/constants/colors";
 import { FontAwesome6 } from "@expo/vector-icons";
+import { RefreshControl } from "react-native";
 
 export default function Name() {
   const { name } = useLocalSearchParams();
@@ -43,6 +44,7 @@ export default function Name() {
   }, [name]);
 
   const reloadCourse = async () => {
+    setRefreshing(true);
     const res = await REST.Course.getCourse({
       token: window.authToken as string,
       course: name as string,
@@ -65,8 +67,6 @@ export default function Name() {
       token: window.authToken as string,
       course: name as string,
     });
-
-    console.log(enrolledRes);
 
     if (enrolledRes.status === 200 && enrolledRes.payload.enrolled) {
       setEnrolled(true);
@@ -98,13 +98,20 @@ export default function Name() {
     }
 
     setSections(s);
+    setRefreshing(false);
   };
+
+  const [refreshing, setRefreshing] = React.useState(false);
 
   if (!course) return <Loader />;
 
   return (
     <>
-      <ScrollView>
+      <ScrollView
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={reloadCourse} />
+        }
+      >
         <Box
           p={6}
           flex={1}

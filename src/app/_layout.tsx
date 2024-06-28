@@ -132,13 +132,17 @@ const Nav = () => {
         ),
       }}
     >
-      <Stack.Screen name={"index"} />
-      <Stack.Screen
-        name={"offers/courses/[name]/[id]"}
-        options={{
-          presentation: "modal",
-        }}
-      />
+      {[
+        "index",
+        "test/index",
+        "offers",
+        "offers/courses",
+        "offers/courses/[name]",
+        "offers/ideas",
+        "offers/courses/[name]/[id]",
+      ].map((p) => {
+        return <Stack.Screen name={p} />;
+      })}
     </Stack>
   );
 };
