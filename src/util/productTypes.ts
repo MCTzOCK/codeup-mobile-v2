@@ -60,3 +60,10 @@ export interface DiscoveryItem {
   id: string;
   stars: string[];
 }
+
+export interface Flow {
+  _id: string;
+  owner: string;
+  name: string;
+  saved: string;
+}
