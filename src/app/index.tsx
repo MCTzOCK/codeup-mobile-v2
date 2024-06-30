@@ -23,6 +23,7 @@ import { router, useNavigation } from "expo-router";
 import HomeCard from "@/src/components/HomeCard";
 import { Dimensions, TouchableOpacity } from "react-native";
 import { FontAwesome6 } from "@expo/vector-icons";
+import HomeMyCourses from "@/src/components/HomeMyCourses";
 
 export default function Index() {
   const navigation = useNavigation();
@@ -34,7 +35,7 @@ export default function Index() {
   return (
     <>
       <ScrollView minHeight={Dimensions.get("window").height}>
-        <Box p={8}>
+        <Box p={8} pb={24}>
           <Heading
             size={"xl"}
             fontWeight={900}
@@ -99,6 +100,7 @@ export default function Index() {
               <FontAwesome6 name="chevron-right" size={14} color="#F7DE1F" />
             </HStack>
           </TouchableOpacity>
+          <HomeMyCourses />
         </Box>
       </ScrollView>
     </>

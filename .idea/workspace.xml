@@ -5,12 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab07d978-7219-4827-826a-8d2b76366bc9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/app/offers/codeup-kids.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/offers/codeup-kids/[id].tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/offers/editor-selection.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/offers/editor.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/HomeMyCourses.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/offers/flows/[id].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/offers/flows/[id].tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/productTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/productTypes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
