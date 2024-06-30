@@ -52,7 +52,7 @@ export default function FlowViewer() {
   if (!flow)
     return (
       <>
-        <Text>{id}</Text>
+        <Loader />
       </>
     );
 

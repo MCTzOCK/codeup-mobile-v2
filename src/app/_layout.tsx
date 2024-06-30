@@ -143,6 +143,7 @@ const Nav = () => {
         "offers/flows",
         "offers/flows/[id]",
         "offers/forum",
+        "offers/codeup-kids",
         "codeup/imprint",
         "codeup/privacy",
         "codeup/blog",

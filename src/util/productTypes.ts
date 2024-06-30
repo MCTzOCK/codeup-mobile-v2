@@ -67,3 +67,10 @@ export interface Flow {
   name: string;
   saved: string;
 }
+
+export interface KidsProject {
+  _id: string;
+  owner: string;
+  name: string;
+  code: string;
+}
