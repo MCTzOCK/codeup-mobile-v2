@@ -12,11 +12,14 @@ import * as React from "react";
 import WebView from "react-native-webview";
 import { useNavigation } from "expo-router";
 import { Box } from "native-base";
+import { Linking } from "react-native";
 
 export default function Forum() {
   useNavigation().setOptions({
     headerTitle: "Forum",
   });
+  const webViewRef = React.useRef<WebView>(null);
+
   return (
     <Box flex={1}>
       <WebView
@@ -26,6 +29,23 @@ export default function Forum() {
         style={{
           flex: 1,
           backgroundColor: "#000",
+        }}
+        ref={webViewRef}
+        originWhitelist={["*"]}
+        onNavigationStateChange={async (navState) => {
+          const { url } = navState;
+
+          if (!url) return;
+
+          if (!url.startsWith("https://codeup.space/")) {
+            Linking.openURL(url);
+            webViewRef.current?.goBack();
+          }
+
+          if (!url.startsWith("https://codeup.space/forum")) {
+            Linking.openURL(url);
+            webViewRef.current?.goBack();
+          }
         }}
       />
     </Box>
