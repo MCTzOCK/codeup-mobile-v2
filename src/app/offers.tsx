@@ -191,11 +191,11 @@ export default function Offers() {
               maxW={"100%"}
             >
               <HomeCard
-                title={"ToDo"}
+                title={"Tasks"}
                 icon={
                   <FontAwesome6 name="check-square" size={58} color="#F7DE1F" />
                 }
-                href={"/offers/todo"}
+                href={"/offers/tasks"}
               />
               <HomeCard
                 title={"Flows"}
