@@ -16,7 +16,7 @@ import { Linking } from "react-native";
 
 export default function Challenges() {
   useNavigation().setOptions({
-    headerTitle: "Snippets",
+    headerTitle: "Challenges",
   });
   const webViewRef = React.useRef<WebView>(null);
 
