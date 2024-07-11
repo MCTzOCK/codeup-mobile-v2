@@ -32,7 +32,8 @@
         {
           "root": "./src/app"
         }
-      ]
+      ],
+      "expo-font"
     ],
     "experiments": {
       "typedRoutes": true
