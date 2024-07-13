@@ -14,7 +14,7 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.bensiebert.codeupv2"
+      "bundleIdentifier": "com.bensiebert.codeup"
     },
     "android": {
       "adaptiveIcon": {
