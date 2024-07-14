@@ -30,6 +30,7 @@ import REST from "@codeupspace/rest";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { AccountManager } from "@/src/util/AccountManager";
 import { router } from "expo-router";
+import { Linking } from "react-native";
 
 export default function LoginComponent() {
   const [action, setAction] = React.useState<"login" | "register">("login");
@@ -80,6 +81,13 @@ export default function LoginComponent() {
                   placeholder={"Passwort"}
                   type={"password"}
                 />
+                <Pressable
+                  onPress={() => {
+                    Linking.openURL("https://codeup.space/#login");
+                  }}
+                >
+                  <Text color={"brand.500"}>Passwort vergessen?</Text>
+                </Pressable>
                 <Button
                   colorScheme={"brand"}
                   size={"md"}
