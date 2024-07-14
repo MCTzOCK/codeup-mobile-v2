@@ -7,7 +7,9 @@
     "android": "expo run:android",
     "ios": "expo run:ios",
     "web": "expo start --web",
-    "test": "jest --watchAll"
+    "test": "jest --watchAll",
+    "build:ios:local": "EAS_LOCAL_BUILD_SKIP_CLEANUP=1 eas build -p ios --profile=production --local",
+    "build:android:local": "EAS_LOCAL_BUILD_SKIP_CLEANUP=1 eas build -p android --profile=production --local"
   },
   "jest": {
     "preset": "jest-expo"
