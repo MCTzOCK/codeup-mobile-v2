@@ -58,7 +58,7 @@ export default function LoginComponent() {
       >
         <Box pt={16}></Box>
 
-        <Box rounded={"lg"} p={4} bg={"black"} minW={"2/3"} maxW={"3/4"}>
+        <Box rounded={"lg"} p={4} bg={"black"} minW={"2/3"}>
           {action === "login" ? (
             <>
               <Heading color={"brand.500"} size={"lg"} fontWeight={900}>
